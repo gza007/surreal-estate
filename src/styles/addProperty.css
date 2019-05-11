@@ -72,8 +72,8 @@
 	-webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
 }
 
-.AddPropertyForm input[type="submit"]{
-	background: #2A88AD;
+.AddPropertyForm button[type="submit"]{
+	background: #750086;;
 	padding: 8px 20px 8px 20px;
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -88,8 +88,8 @@
 	font-size: 15px;
 }
 
-.AddPropertyForm input[type="submit"]:hover{
-	background: #2A6881;
+.AddPropertyForm button[type="submit"]:hover{
+	background: #611270;;
 	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
 	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
 	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);

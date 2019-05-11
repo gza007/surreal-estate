@@ -86,7 +86,7 @@ class AddProperty extends React.Component {
                   Email:
                   <input name="email" value={this.state.fields.email} onChange={this.handleFieldChange} placeholder="e.g. johnsmith@hotmail.com" type="email" />
                 </label>
-                <button type="Submit">Submit</button>
+                <button type="submit">Submit</button>
               </div>
             </form>
           </label>
