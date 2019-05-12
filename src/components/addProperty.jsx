@@ -1,6 +1,9 @@
 import React from 'react';
-// import { Button, Form } from 'react-bootstrap';
 import '../styles/addProperty.css';
+import axios from 'axios';
+import Alert from '../../src/components/alert';
+
+const URL = 'http://localhost:3000/api/v1';
 
 class AddProperty extends React.Component {
   constructor(props) {
@@ -11,10 +14,13 @@ class AddProperty extends React.Component {
         type: 'Flat',
         bedrooms: 0,
         bathrooms: 0,
-        price: '',
+        price: 0,
         city: 'Manchester',
         email: '',
       },
+      alertMessage: '',
+      isSuccess: false,
+      isError: false,
     };
   }
 
@@ -29,7 +35,25 @@ class AddProperty extends React.Component {
 
   handleAddProperty = event => {
     event.preventDefault();
-    console.log(this.state.fields);
+    this.setState({
+      alertMessage: '',
+      isSuccess: false,
+      isError: false,
+    });
+    axios.post(`${URL}/PropertyListing`, this.state.fields)
+      .then(response => {
+        console.log(response);
+      })
+      .then(() => this.setState({
+        isSuccess: true,
+        alertMessage: 'Your Property Has Been Added.',
+      }))
+      .catch(() => {
+        this.setState({
+          alertMessage: 'Oops! Our server is down, please try again later!',
+          isError: true,
+        });
+      });
   };
 
   render() {
@@ -71,7 +95,7 @@ class AddProperty extends React.Component {
                 </div>
                 <label>
                   Price:
-                  <input name="price" value={this.state.fields.price} onChange={this.handleFieldChange} placeholder="e.g. £300,000" type="text" />
+                  <input name="price" value={this.state.fields.price} onChange={this.handleFieldChange} type="number" step="10000" />
                 </label>
                 <label>
                   Select Location of Property:
@@ -88,6 +112,8 @@ class AddProperty extends React.Component {
                 </label>
                 <button type="submit">Submit</button>
               </div>
+              {this.state.isSuccess && <Alert message={this.state.alertMessage} success />}
+              {this.state.isError && <Alert message={this.state.alertMessage} />}
             </form>
           </label>
         </div>
@@ -97,3 +123,5 @@ class AddProperty extends React.Component {
 }
 
 export default AddProperty;
+
+// username surreal password estate
