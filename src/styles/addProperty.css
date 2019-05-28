@@ -73,6 +73,7 @@
 }
 
 .AddPropertyForm button[type="submit"]{
+	width: 100%;
 	background: #750086;;
 	padding: 8px 20px 8px 20px;
 	border-radius: 5px;

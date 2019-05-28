@@ -11,6 +11,7 @@ class Properties extends React.Component {
       properties: [],
       // favourites: [],
       // search: '',
+      // eslint-disable-next-line react/no-unused-state
       isError: false,
       // saveError: false,
     };
@@ -22,6 +23,7 @@ class Properties extends React.Component {
         this.setState({ properties });
       })
       .catch(() => {
+        // eslint-disable-next-line react/no-unused-state
         this.setState({ isError: true });
       });
   };
